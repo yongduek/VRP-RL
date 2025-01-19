@@ -2,7 +2,12 @@ import argparse
 import os
 import numpy as np
 from tqdm import tqdm 
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+# 2025-01-19 11:43:28.891363: I tensorflow/core/util/port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+
 import tensorflow as tf
+tf.compat.v1.disable_v2_behavior()  # Disable TF2 behavior, Use TF1.X
+
 import time
 
 from configs import ParseParams
